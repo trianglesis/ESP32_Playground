@@ -1,5 +1,8 @@
 # Notes
 
+Board used ESP32 C6 Devkit C-1
+- https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html#hardware-reference
+
 ## Web Server
 
 ### Wifi AP
@@ -49,11 +52,22 @@ factory,app,factory,0x10000,1500K,
 
 - Copy content into new file at root dir `partitions.csv`
 - Add new partition for `littlefs`:
+- Optionally change size to simple `1M`, `2M` up to `4M` (I have 8M ESP32 C6)
+- Additionally check: **KCONFIG Name:** `ESPTOOLPY_FLASHSIZE` to show youe board actual flash
 
 ```csv
-# Common partitions above
+# Common partitions above.
+# This string was copied from littleFS example: partitions_demo_esp_littlefs.csv
 littlefs,  data, littlefs,      ,  0xF0000, 
 ```
+
+Optional:
+- I tried to increase the fs size, since I have 8Mb to spare
+
+```csv
+littlefs,data,littlefs,,4M,
+```
+Compiling...
 
 4. Try to build with new partition tables.
 
@@ -61,10 +75,14 @@ littlefs,  data, littlefs,      ,  0xF0000,
 
 ##### Doc
 
+Partitions and sizes: 
+- https://gitdemo.readthedocs.io/en/latest/partition-tables.html#offset-size
+- https://docs.espressif.com/projects/esp-at/en/latest/esp32c6/Compile_and_Develop/How_to_customize_partitions.html
+
 FS:
-https://components.espressif.com/components/joltwallet/littlefs/versions/1.19.1
-https://github.com/joltwallet/esp_littlefs
-https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/spiffs.html
+- https://components.espressif.com/components/joltwallet/littlefs/versions/1.19.1
+- https://github.com/joltwallet/esp_littlefs
+- https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/spiffs.html
 
 
 ### Async WEBServer
