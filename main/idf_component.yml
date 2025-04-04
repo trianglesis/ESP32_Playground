@@ -16,4 +16,4 @@ dependencies:
   #   public: true
   espressif/led_strip: ^3.0.1
   esp32async/espasyncwebserver: ^3.7.4
-  # joltwallet/littlefs: ^1.19.1
+  joltwallet/littlefs: ^1.19.1

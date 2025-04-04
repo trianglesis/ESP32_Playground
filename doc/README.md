@@ -13,12 +13,53 @@ https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-guides/wifi-se
 
 ### Serve files
 
-1. Create simple partition table first: `idf.py menuconfig`
-2. Generate CSV refference next: https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/partition-tables.html#generating-binary-partition-table
-Gen cmd: `python gen_esp32part.py binary_partitions.bin input_partitions.csv`
+1. Create simple partition table first: `idf.py menuconfig` and select 
 
-3. 
+- `Single factory APP no OTA` OR `Single factory app (large) no OTA`
 
+1. Generate CSV refference next: 
+
+- Gen cmd: `idf.py partition-table` copy generated below
+- - Doc: https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/partition-tables.html#generating-binary-partition-table
+
+
+```text
+#### Usual
+
+Partition table binary generated. Contents:
+*******************************************************************************
+# ESP-IDF Partition Table
+# Name, Type, SubType, Offset, Size, Flags
+nvs,data,nvs,0x9000,24K,
+phy_init,data,phy,0xf000,4K,
+factory,app,factory,0x10000,1M,
+*******************************************************************************
+
+#### LARGE
+*******************************************************************************
+# ESP-IDF Partition Table
+# Name, Type, SubType, Offset, Size, Flags
+nvs,data,nvs,0x9000,24K,
+phy_init,data,phy,0xf000,4K,
+factory,app,factory,0x10000,1500K,
+*******************************************************************************
+```
+
+3. New partition for Little FS:
+
+- Copy content into new file at root dir `partitions.csv`
+- Add new partition for `littlefs`:
+
+```csv
+# Common partitions above
+littlefs,  data, littlefs,      ,  0xF0000, 
+```
+
+4. Try to build with new partition tables.
+
+- Use `idf.py menuconfig` and set `Partition Table` use `Custom partition table CSV` to `partitions.csv`
+
+##### Doc
 
 FS:
 https://components.espressif.com/components/joltwallet/littlefs/versions/1.19.1

@@ -463,13 +463,14 @@ dependencies:
       require: private
       version: '>=5.0'
     source:
-      registry_url: https://components.espressif.com
+      registry_url: https://components.espressif.com/
       type: service
     version: 1.19.1
 direct_dependencies:
 - esp32async/espasyncwebserver
 - espressif/led_strip
 - idf
-manifest_hash: fcd7a5fee5e393b86aa2edf107dc982f20d7fa467af165a1c81e5c7a4c9d98a6
+- joltwallet/littlefs
+manifest_hash: 348d6d2eba2073da25b938d830af68a7460755cf0fe146aa781b0a3ccab5ed9c
 target: esp32c6
 version: 2.0.0
