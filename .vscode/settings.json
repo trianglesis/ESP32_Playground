@@ -6,5 +6,8 @@
         "board/esp32c6-lpcore-builtin.cfg"
     ],
     "idf.portWin": "COM3",
-    "idf.toolsPathWin": "d:\\Projects\\ESP\\Espressif\\.espressif"
+    "idf.toolsPathWin": "d:\\Projects\\ESP\\Espressif\\.espressif",
+    "idf.customExtraVars": {
+        "IDF_TARGET": "esp32c6"
+    }
 }
