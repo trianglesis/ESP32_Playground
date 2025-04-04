@@ -131,6 +131,11 @@ REST seems suitable (or not):
 Reuse captive portal to better show WEB page as soon as phone connects to WiFi AP
 - https://github.com/espressif/esp-idf/blob/5c51472e82a58098dda8d40a1c4f250c374fc900/examples/protocols/http_server/captive_portal/main/main.c
 
+Copy:
+Example DNS server from `PROJECT_ROOT\v5.4.1\esp-idf\examples\protocols\http_server\captive_portal\components`
+to `PROJECT_ROOT\v5.4.1\esp-idf\components\dns_server`
+
+
 Problems:
 - https://esp32.com/viewtopic.php?t=44005
   
