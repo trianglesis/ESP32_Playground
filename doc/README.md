@@ -3,6 +3,8 @@
 Board used ESP32 C6 Devkit C-1
 - https://docs.espressif.com/projects/esp-dev-kits/en/latest/esp32c6/esp32-c6-devkitc-1/user_guide.html#hardware-reference
 
+Try to use only IDF, no arduino.
+
 ## Web Server
 
 ### Wifi AP
@@ -68,6 +70,10 @@ Optional:
 littlefs,data,littlefs,,4M,
 ```
 Compiling...
+Working fine:
+
+[Log](logs/partition_and_wifi.log)
+
 
 4. Try to build with new partition tables.
 
@@ -85,7 +91,21 @@ FS:
 - https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/spiffs.html
 
 
+### Create index.html
+
+Use just simple web page.
+
+Now following: https://randomnerdtutorials.com/esp32-esp8266-plot-chart-web-server/
+
+
 ### Async WEBServer
+
+**NOTE** Cannot use as clean IDF setup, only for arduino?
+- https://stackoverflow.com/questions/69266035/how-to-set-up-an-async-web-server-with-esp-idf
+
+Must install both:
+- AsyncTCP
+- ESPAsyncWebServer
 
 Try to set up and understand why I may need this:
 - https://github.com/ESP32Async/ESPAsyncWebServer/wiki#how-to-install
@@ -99,6 +119,23 @@ Install dep and solve issues:
 # root dir file: sdkconfig
 CONFIG_FREERTOS_HZ=1000
 ```
+
+### IDF Standart httpd
+
+- https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/protocols/esp_http_server.html
+- https://github.com/espressif/esp-idf/tree/5c51472e/examples/protocols/http_server/simple
+
+REST seems suitable (or not):
+- https://github.com/espressif/esp-idf/tree/5c51472e/examples/protocols/http_server/restful_server
+
+Reuse captive portal to better show WEB page as soon as phone connects to WiFi AP
+- https://github.com/espressif/esp-idf/blob/5c51472e82a58098dda8d40a1c4f250c374fc900/examples/protocols/http_server/captive_portal/main/main.c
+
+Problems:
+- https://esp32.com/viewtopic.php?t=44005
+  
+
+
 
 ### IDF
 
