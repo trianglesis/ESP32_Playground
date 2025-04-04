@@ -4,5 +4,11 @@
 			"path": ".."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"files.associations": {
+			"esp_random.h": "c",
+			"wifi.h": "c",
+			"task.h": "c"
+		}
+	}
 }

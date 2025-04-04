@@ -9,5 +9,6 @@
     "idf.toolsPathWin": "d:\\Projects\\ESP\\Espressif\\.espressif",
     "idf.customExtraVars": {
         "IDF_TARGET": "esp32c6"
-    }
+    },
+    "idf.flashType": "UART"
 }
