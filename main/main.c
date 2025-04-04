@@ -225,6 +225,29 @@ void pin_beep(bool led_on_off) {
     }
 }
 
+void led_blink(bool led_on_off, led_strip_handle_t led_strip) {
+    // Use to show board alive
+    if (led_on_off) {
+        /* Set the LED pixel using RGB from 0 (0%) to 255 (100%) for each color */
+        for (int i = 0; i < LED_STRIP_LED_COUNT; i++) {
+            led_control_hsv(i, led_strip);
+        }
+        /* Refresh the strip to send data */
+        ESP_ERROR_CHECK(led_strip_refresh(led_strip));
+        // ESP_LOGI(TAG, "LED ON!");
+
+        // count blinks
+        count_blinks_display(led_on_off);
+        // Beep pin
+        pin_beep(led_on_off);
+
+    } else {
+        /* Set all LED off to clear all pixels */
+        ESP_ERROR_CHECK(led_strip_clear(led_strip));
+        // ESP_LOGI(TAG, "LED OFF!");
+    }
+}
+
 //  Start BIP, start LED, cycle both
 void app_main(void)
 {
