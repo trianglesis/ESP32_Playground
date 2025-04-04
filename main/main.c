@@ -234,17 +234,13 @@ void led_blink(bool led_on_off, led_strip_handle_t led_strip) {
         }
         /* Refresh the strip to send data */
         ESP_ERROR_CHECK(led_strip_refresh(led_strip));
-        // ESP_LOGI(TAG, "LED ON!");
-
-        // count blinks
-        count_blinks_display(led_on_off);
+        ESP_LOGI(TAG, "LED ON!");
         // Beep pin
         pin_beep(led_on_off);
-
     } else {
         /* Set all LED off to clear all pixels */
         ESP_ERROR_CHECK(led_strip_clear(led_strip));
-        // ESP_LOGI(TAG, "LED OFF!");
+        ESP_LOGI(TAG, "LED OFF!");
     }
 }
 
