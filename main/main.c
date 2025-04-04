@@ -1,21 +1,35 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/stat.h>
+// 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#include "driver/gpio.h"
-#include "led_strip.h"
+// 
 #include "esp_log.h"
 #include "esp_err.h"
-#include "esp_random.h"
+// 
+// WiFI AP
 #include "esp_mac.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
-#include "esp_log.h"
 #include "nvs_flash.h"
-
 #include "lwip/err.h"
 #include "lwip/sys.h"
+// My custom
+// LED
+#include "led_strip.h"
+// GPIO
+#include "driver/gpio.h"
+// Random colours gen
+#include "esp_random.h"
+// FS
+// #include "esp_spi_flash.h"
+// #include "esp_littlefs.h"
+
+// WEBSERVER
+// #include <ESPAsyncWebServer.h>
 
 // For ESP32 C6 with integrated LED
 // Init the LED as a usefull indicator of a working cycle.

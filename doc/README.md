@@ -2,6 +2,30 @@
 
 ## Web Server
 
+### Wifi AP
+
+Soft AP
+https://github.com/espressif/esp-idf/blob/v5.4.1/examples/wifi/getting_started/softAP/main/softap_example_main.c
+
+No password: 
+https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-reference/network/esp_wifi.html#_CPPv416wifi_auth_mode_t
+https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-guides/wifi-security.html
+
+### Serve files
+
+1. Create simple partition table first: `idf.py menuconfig`
+2. Generate CSV refference next: https://docs.espressif.com/projects/esp-idf/en/stable/esp32c6/api-guides/partition-tables.html#generating-binary-partition-table
+Gen cmd: `python gen_esp32part.py binary_partitions.bin input_partitions.csv`
+
+3. 
+
+
+FS:
+https://components.espressif.com/components/joltwallet/littlefs/versions/1.19.1
+https://github.com/joltwallet/esp_littlefs
+https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/storage/spiffs.html
+
+
 ### Async WEBServer
 
 Try to set up and understand why I may need this:
@@ -47,3 +71,4 @@ AP
 
 Captive portal:
 - https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-reference/provisioning/wifi_provisioning.html
+
