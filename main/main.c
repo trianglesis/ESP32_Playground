@@ -166,23 +166,7 @@ static httpd_handle_t start_webserver(void)
 
 void app_main(void)
 {
-    /*
-    Turn of warnings from HTTP server as redirecting traffic will yield
-    lots of invalid requests
-    */
-    esp_log_level_set("httpd_uri", ESP_LOG_ERROR);
-    esp_log_level_set("httpd_txrx", ESP_LOG_ERROR);
-    esp_log_level_set("httpd_parse", ESP_LOG_ERROR);
-    
-    ESP_LOGI(TAG, "Start Playground ESP");
-    
-    // Initialize networking stack
-    ESP_ERROR_CHECK(esp_netif_init());
-    // Create default event loop needed by the  main app
-    ESP_ERROR_CHECK(esp_event_loop_create_default());
-
     // NVS SET by Wifi module externally
-
     // Start Wifi AP
     ESP_LOGI(TAG, "ESP_WIFI_MODE_AP");
     wifi_setup();
@@ -194,15 +178,30 @@ void app_main(void)
     // Load index
     load_index_file_buffer();
 
-    // Captive portal
-    dhcp_set_captiveportal_url();
+    // /*
+    // Turn of warnings from HTTP server as redirecting traffic will yield
+    // lots of invalid requests
+    // */
+    // esp_log_level_set("httpd_uri", ESP_LOG_ERROR);
+    // esp_log_level_set("httpd_txrx", ESP_LOG_ERROR);
+    // esp_log_level_set("httpd_parse", ESP_LOG_ERROR);
+   
+    // ESP_LOGI(TAG, "Start Playground ESP");
+   
+    // // Initialize networking stack
+    // ESP_ERROR_CHECK(esp_netif_init());
+    // // Create default event loop needed by the  main app
+    // ESP_ERROR_CHECK(esp_event_loop_create_default());
 
-    // Start the server for the first time
-    start_webserver();
+    // // Captive portal
+    // dhcp_set_captiveportal_url();
+
+    // // Start the server for the first time
+    // start_webserver();
     
-    // Start the DNS server that will redirect all queries to the softAP IP
-    dns_server_config_t config = DNS_SERVER_CONFIG_SINGLE("*" /* all A queries */, "WIFI_AP_DEF" /* softAP netif ID */);
-    start_dns_server(&config);
+    // // Start the DNS server that will redirect all queries to the softAP IP
+    // dns_server_config_t config = DNS_SERVER_CONFIG_SINGLE("*" /* all A queries */, "WIFI_AP_DEF" /* softAP netif ID */);
+    // start_dns_server(&config);
 
     // while (1) {}
 }
