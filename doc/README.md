@@ -9,6 +9,8 @@ Try to use only IDF, no arduino.
 
 ### Wifi AP
 
+Works in general
+
 Soft AP
 https://github.com/espressif/esp-idf/blob/v5.4.1/examples/wifi/getting_started/softAP/main/softap_example_main.c
 
@@ -17,6 +19,8 @@ https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-reference/netw
 https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-guides/wifi-security.html
 
 ### Serve files
+
+Works in general
 
 1. Create simple partition table first: `idf.py menuconfig` and select 
 
@@ -98,9 +102,24 @@ Use just simple web page.
 Now following: https://randomnerdtutorials.com/esp32-esp8266-plot-chart-web-server/
 
 
+# Web server
+
+### All on One WIfiAP, Wifi fallback, HTTP WEB Server
+
+- https://github.com/tonyp7/esp32-wifi-manager
+
+Can override a built-in webserver with personal pages
+- https://github.com/tonyp7/esp32-wifi-manager?tab=readme-ov-file#interacting-with-the-http-server
+
+### All in one:
+
+- https://github.com/elliotmade/ESP32-Captive-Portal-Example
+
+
 ### Async WEBServer
 
 **NOTE** Cannot use as clean IDF setup, only for arduino?
+
 - https://stackoverflow.com/questions/69266035/how-to-set-up-an-async-web-server-with-esp-idf
 
 Must install both:
@@ -132,6 +151,8 @@ REST seems suitable (or not):
 Reuse captive portal to better show WEB page as soon as phone connects to WiFi AP
 - https://github.com/espressif/esp-idf/blob/5c51472e82a58098dda8d40a1c4f250c374fc900/examples/protocols/http_server/captive_portal/main/main.c
 
+#### Ideas
+
 Copy:
 Example DNS server from `PROJECT_ROOT\v5.4.1\esp-idf\examples\protocols\http_server\captive_portal\components`
 to `PROJECT_ROOT\v5.4.1\esp-idf\components\dns_server`
@@ -140,8 +161,17 @@ to `PROJECT_ROOT\v5.4.1\esp-idf\components\dns_server`
 Problems:
 - https://esp32.com/viewtopic.php?t=44005
   
+#### Working example
 
+- `\v5.4.1\esp-idf\examples\protocols\http_server\captive_portal\main\main.c`
 
+Reuse `root_get_handler` with `load_index_file_buffer`
+
+Captive redirection does not work yet
+
+"Header Fields are too long for the server to interpret"
+- https://stackoverflow.com/a/67849714
+- https://github.com/tonyp7/esp32-wifi-manager/issues/147
 
 ### IDF
 

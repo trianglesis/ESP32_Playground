@@ -141,7 +141,7 @@ esp_err_t http_404_error_handler(httpd_req_t *req, httpd_err_code_t err)
     // Redirect to the "/" root directory
     httpd_resp_set_hdr(req, "Location", "/");
     // iOS requires content in the response to detect a captive portal, simply redirecting is not sufficient.
-    httpd_resp_send(req, "Redirect to the captive portal", HTTPD_RESP_USE_STRLEN);
+    httpd_resp_send(req, "Redirect...", HTTPD_RESP_USE_STRLEN);
 
     ESP_LOGI(TAG, "Redirecting to root");
     return ESP_OK;
