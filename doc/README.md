@@ -124,6 +124,7 @@ CONFIG_FREERTOS_HZ=1000
 
 - https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/protocols/esp_http_server.html
 - https://github.com/espressif/esp-idf/tree/5c51472e/examples/protocols/http_server/simple
+- https://esp32tutorials.com/esp32-esp-idf-websocket-web-server/
 
 REST seems suitable (or not):
 - https://github.com/espressif/esp-idf/tree/5c51472e/examples/protocols/http_server/restful_server

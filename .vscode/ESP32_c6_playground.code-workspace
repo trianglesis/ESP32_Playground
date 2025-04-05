@@ -23,7 +23,8 @@
 			"esp_http_server.h": "c",
 			"gpio.h": "c",
 			"esp_littlefs.h": "c",
-			"esp_wifi.h": "c"
+			"esp_wifi.h": "c",
+			"stdio.h": "c"
 		}
 	}
 }
