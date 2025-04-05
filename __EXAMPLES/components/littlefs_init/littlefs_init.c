@@ -1,25 +1,17 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
-#include <unistd.h>
 #include <sys/stat.h>
-#include <sys/param.h>
-// 
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-// 
-#include "esp_log.h"
+#include <unistd.h>
 #include "esp_err.h"
-// File system
+#include "esp_log.h"
 #include "esp_system.h"
 #include "esp_littlefs.h"
 
-// Working examples
-#include "access_point_wifi.h"
+#include "littlefs_init.h"
 
-static const char *TAG = "playground";
+static const char *TAG = "littlefs";
 
-// Cannot move FS tools into a separate module yet.
+
 void fs_setup() {
     esp_vfs_littlefs_conf_t conf = {
         .base_path = "/littlefs",
@@ -62,21 +54,4 @@ void fs_read() {
         return;
     }
     fclose(f);
-}
-
-
-void app_main(void)
-{
-    ESP_LOGI(TAG, "Start Playground ESP");
-    
-    // Start Wifi AP
-    ESP_LOGI(TAG, "ESP_WIFI_MODE_AP");
-    wifi_setup();
-
-    // FS Setup
-    fs_setup();
-    // Read file
-    fs_read();
-
-    // while (1) {}
 }

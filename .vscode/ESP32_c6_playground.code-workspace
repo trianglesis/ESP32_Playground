@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": ".."
+		},
+		{
+			"path": "../../../../../Espressif/v5.4.1/esp-idf/examples"
 		}
 	],
 	"settings": {
@@ -24,7 +27,17 @@
 			"gpio.h": "c",
 			"esp_littlefs.h": "c",
 			"esp_wifi.h": "c",
-			"stdio.h": "c"
+			"stdio.h": "c",
+			"esp_mac.h": "c",
+			"connect_wifi.h": "c",
+			"wifi_ap.h": "c",
+			"access_point_wifi.h": "c",
+			"freertos.h": "c",
+			"smallfs_serve.h": "c",
+			"stat.h": "c",
+			"esp_system.h": "c",
+			"littlefs_init.h": "c",
+			"esp_event.h": "c"
 		}
 	}
 }

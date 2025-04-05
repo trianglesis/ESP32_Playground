@@ -1,5 +1,7 @@
 // LED
 #include "led_strip.h"
+// Random colours gen
+#include "esp_random.h"
 
 // Do not used
 #define LED_STRIP_USE_DMA 0
