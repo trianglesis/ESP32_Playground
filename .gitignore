@@ -3,4 +3,4 @@ sdkconfig
 sdkconfig.old
 managed_components/*
 examples/
-/examples/
+/../examples/
