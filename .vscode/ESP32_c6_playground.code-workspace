@@ -37,7 +37,9 @@
 			"stat.h": "c",
 			"esp_system.h": "c",
 			"littlefs_init.h": "c",
-			"esp_event.h": "c"
+			"esp_event.h": "c",
+			"inet.h": "c",
+			"esp_tls_crypto.h": "c"
 		}
 	}
 }

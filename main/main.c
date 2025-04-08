@@ -202,7 +202,6 @@ void app_main(void)
     // Captive portal
     dhcp_set_captiveportal_url();
 
-    
     // Start the DNS server that will redirect all queries to the softAP IP
     dns_server_config_t config = DNS_SERVER_CONFIG_SINGLE("*" /* all A queries */, "WIFI_AP_DEF" /* softAP netif ID */);
     start_dns_server(&config);

@@ -204,3 +204,11 @@ AP
 Captive portal:
 - https://docs.espressif.com/projects/esp-idf/en/v5.4.1/esp32c6/api-reference/provisioning/wifi_provisioning.html
 
+
+
+# SQL !
+
+Nice to have it on SD card to store data for a few days, weeks and show at LVGL display: pages
+Not tested it yet, will try after LVGL
+
+- https://github.com/nopnop2002/esp32-idf-sqlite3
