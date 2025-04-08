@@ -206,6 +206,9 @@ Captive portal:
 
 
 
+### Other examples
+- https://github.com/ESP32Tutorials/ESP32-ESP-IDF-SPIFFS-Web-Server
+
 # SQL !
 
 Nice to have it on SD card to store data for a few days, weeks and show at LVGL display: pages
